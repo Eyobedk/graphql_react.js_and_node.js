@@ -26,6 +26,10 @@ const AddUserForm = () => {
     }
   });
 
+  if(error){
+    //toast.error(error.message)
+  }
+
   const handleSubmit = event => {
     event.preventDefault();
     addUser({

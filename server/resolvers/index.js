@@ -1,5 +1,5 @@
 //App ERROR
-const HandleError = require("../utils/error_handler");
+const {HandleError, AppError} = require("../utils/error_handler");
 const UserModel = require("../models/user/index")
 
 // resolver
@@ -9,7 +9,7 @@ exports.resolvers = {
             try {
                 const user = await UserModel.findById(input.id);
                 if (!user) {
-                    throw new HandleError("User does not exists", "BAD_USER_INPUT")
+                    throw new AppError("User does not exists", "BAD_USER_INPUT")
                  }
 
                 return user
@@ -41,6 +41,10 @@ exports.resolvers = {
                 // if (!existingUser) {
                 //     throw new HandleError("Email already exists", "BAD_USER_INPUT")
                 // }
+
+                if(input.first_name === 'eyobed'){
+                    throw new AppError("eyobed is not allowed", "FORBIDDEN")
+                }
 
                 const user = await UserModel.create(input);
                 return {
