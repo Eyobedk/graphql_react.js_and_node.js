@@ -29,7 +29,7 @@ exports.resolvers = {
     Mutation: {
         addUser: async (_, input) => { //input = {first_name, last_name, ...}
             try {
-                //call custom-bilt authorization functions
+                //call custom authorization functions
 
                 // perform input validatons 
 
