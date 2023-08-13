@@ -1,3 +1,4 @@
+//App ERROR
 const {HandleError, AppError} = require("../utils/error_handler");
 const UserModel = require("../models/user/index")
 

@@ -13,6 +13,10 @@ const AddUserForm = () => {
 
   const [addUser, { loading, error, data }] = useMutation(ADD_USER);
 
+  if(error){
+    //toast.error(error.message)
+  }
+
   const handleSubmit = event => {
     event.preventDefault();
     addUser({

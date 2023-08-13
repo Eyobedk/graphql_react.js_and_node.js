@@ -14,9 +14,10 @@ class AppError extends Error {
 
 function HandleError(error) {
         throw new GraphQLError(error.message, {
-            extensions: {
-                code: error.statusCode
-            }
+            extensions: 
+                {
+                    code: error.statusCode
+                }
         })
 }
 
