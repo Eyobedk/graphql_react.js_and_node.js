@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
 import { getAllUsers } from './Graphql/Query';
 import { useQuery } from '@apollo/client';
 
@@ -32,7 +31,8 @@ const Users = () => {
           <hr/>
         </div>
       )}
-      <h6> {users[0] && <a href={`user/${users[0].id}`}> view single user </a>} </h6>
+      <h6> {users[0] && <a href={`user/${users[0].id}`}>
+       view single user </a>} </h6>
     </div>
   );
 }

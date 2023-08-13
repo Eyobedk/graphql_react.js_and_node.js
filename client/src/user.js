@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
 import { getUser } from './Graphql/Query';
 import { useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
@@ -8,13 +7,12 @@ const GetUser = () => {
   const {id} = useParams();
 
   const [user, setUser] = useState({});
-  const {error, loading, data} = useQuery(getUser, {variables: 
-    {id}
+  const {error, loading, data} = useQuery(getUser, {
+    variables: {id}
   });
 
   function getSingleUser(){
-    if(data)
-    {
+    if(data){
       setUser(data.getUser);
     }
   }
@@ -24,7 +22,7 @@ const GetUser = () => {
   }, [data])
 
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
+if (error) return <p>Error: {error.message}</p>;
 
   return (
     <div>

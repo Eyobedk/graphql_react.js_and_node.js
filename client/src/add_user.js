@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useMutation, gql } from '@apollo/client';
+import React from 'react';
+import { useMutation } from '@apollo/client';
 import {ADD_USER} from './Graphql/Mutations'
 
 
@@ -11,20 +11,7 @@ const AddUserForm = () => {
     email: ''
   });
 
-  const [newUser, setNewUser] = useState({});
-  const [message, setMessage] = useState('');
-
-  const [addUser, { loading, error, data }] = useMutation(ADD_USER, {
-    onCompleted: () => {
-      // Reset form values after successful mutation
-      setValues({
-        first_name: '',
-        last_name: '',
-        age: '',
-        email: ''
-      });
-    }
-  });
+  const [addUser, { loading, error, data }] = useMutation(ADD_USER);
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -36,12 +23,6 @@ const AddUserForm = () => {
         email: values.email
       }
     });
-
-    if(data){
-      console.log("here")
-      setNewUser(data.addUser.user);
-      setMessage(data.addUser.message)
-    }
   };
 
   const handleChange = event => {
